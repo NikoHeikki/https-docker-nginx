@@ -27,7 +27,7 @@ Change COPY command to point to certificate and key name, for Cerbot certificate
 docker build -t nginx-cert:latest .
 ```
 
-## Run docker container from Apache foreground
+## Run Nginx docker container
 ```
 docker run -d -p 80:80 -p 443:443 nginx-cert:latest
 ```
