@@ -17,19 +17,19 @@ Install Cerbot and install certs by following instructions and you should end up
 git clone https://github.com/NikoHeikki/https-docker-nginx.git
 ```
 ## Modify app.conf
-Change all example.org to the name of your server, change SSLCertificateFile and SSLCertificateKeyFile to point out created files.
+Change all example.org url's to the name of your server, change SSLCertificateFile and SSLCertificateKeyFile to point out created files.
 
 ## Modify Dockerfile
 Change COPY command to point to certificate and key name, for Cerbot certificate this is usually fullchain.pem and privkey.pem
 
 ## Build Docker image
 ```
-docker build -t htpps-apache:stable .
+docker build -t nginx-cert:latest .
 ```
 
 ## Run docker container from Apache foreground
 ```
-docker run -v $(pwd)/index.php:/var/www/html/index.php -d  -p 443:443 htpps-apache:stable apache2-foreground
+docker run -d -p 80:80 -p 443:443 nginx-cert:latest
 ```
 
 ## Check localhost for https
